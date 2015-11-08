@@ -1,0 +1,11 @@
+E:\Google Drive\Visual Studio\EDAdvancedSearch\EDAdvancedSearch\bin\Release\EDAdvancedSearch.exe.config
+E:\Google Drive\Visual Studio\EDAdvancedSearch\EDAdvancedSearch\bin\Release\EDAdvancedSearch.exe
+E:\Google Drive\Visual Studio\EDAdvancedSearch\EDAdvancedSearch\bin\Release\EDAdvancedSearch.pdb
+E:\Google Drive\Visual Studio\EDAdvancedSearch\EDAdvancedSearch\bin\Release\Newtonsoft.Json.dll
+E:\Google Drive\Visual Studio\EDAdvancedSearch\EDAdvancedSearch\bin\Release\Newtonsoft.Json.xml
+E:\Google Drive\Visual Studio\EDAdvancedSearch\EDAdvancedSearch\obj\Release\EDAdvancedSearch.csprojResolveAssemblyReference.cache
+E:\Google Drive\Visual Studio\EDAdvancedSearch\EDAdvancedSearch\obj\Release\EDAdvancedSearch.Properties.Resources.resources
+E:\Google Drive\Visual Studio\EDAdvancedSearch\EDAdvancedSearch\obj\Release\EDAdvancedSearch.SearchForm.resources
+E:\Google Drive\Visual Studio\EDAdvancedSearch\EDAdvancedSearch\obj\Release\EDAdvancedSearch.csproj.GenerateResource.Cache
+E:\Google Drive\Visual Studio\EDAdvancedSearch\EDAdvancedSearch\obj\Release\EDAdvancedSearch.exe
+E:\Google Drive\Visual Studio\EDAdvancedSearch\EDAdvancedSearch\obj\Release\EDAdvancedSearch.pdb
