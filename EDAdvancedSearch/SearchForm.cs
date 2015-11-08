@@ -434,7 +434,7 @@ namespace EDAdvancedSearch
             else
                 param.name = null;
 
-            if (!numericBoxR.ReadOnly || !numericBoxX.ReadOnly || !numericBoxY.ReadOnly || !numericBoxZ.ReadOnly)//coord and radius pull
+            if (!numericBoxR.ReadOnly && !numericBoxX.ReadOnly && !numericBoxY.ReadOnly && !numericBoxZ.ReadOnly)//coord and radius pull
             {
                 //ConsoleWrite("coord value passed");
                 rad = float.Parse(numericBoxR.Text.ToString());
@@ -551,6 +551,12 @@ namespace EDAdvancedSearch
                     string s = "\nSystem Name: " + result[cnt].name;
                     if (ck[0])
                         s += "\nCoordinates: X: " + result[cnt].x + " Y: " + result[cnt].y + " Z: " + result[cnt].z;
+                    if (!(p.x == null) && !(p.y == null) && !(p.z == null) && !(p.x == null))
+                    {
+                        double dist = Math.Sqrt(Math.Pow(p.x.Value - l[cnt].x.Value, 2) + 
+                            Math.Pow(p.y.Value - l[cnt].y.Value, 2) + Math.Pow(p.z.Value - l[cnt].z.Value, 2));
+                        s += "\nDistance " + dist;
+                    }
                     if (ck[1])
                         s += "\nPopulation: " + result[cnt].population;
                     if (ck[2])
