@@ -1,11 +1,5 @@
-﻿using System;
-using System.Drawing;
-using System.Globalization;
+﻿using System.Drawing;
 using System.Windows.Forms;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 /*  ED Advanced Search is a third party search tool for Elite:Dangerous
  *  Copyright (C) 2015  Benjamin Massingill
  *

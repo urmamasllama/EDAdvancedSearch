@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-/*  ED Advanced Search is a third party search tool for Elite:Dangerous
+﻿/*  ED Advanced Search is a third party search tool for Elite:Dangerous
  *  Copyright (C) 2015  Benjamin Massingill
  *
  *  This program is free software: you can redistribute it and/or modify

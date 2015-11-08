@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Threading.Tasks;
 using System.IO;
 using System.Net;
-using System.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -35,10 +30,10 @@ namespace EDAdvancedSearch
 {
     public static class EDS
     {
-        public static DateTime FromUnixTime(this long unixTime)
+        public static DateTime FromUnixTime(long? unixTime)
         {
-            var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-            return epoch.AddSeconds(unixTime);
+            DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);            
+            return epoch.AddSeconds(unixTime ?? 0);
         }
 
         //this version of prep is used when you want to specify a file path for a json file to use

@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 /*  ED Advanced Search is a third party search tool for Elite:Dangerous
   *  Copyright (C) 2015  Benjamin Massingill
@@ -543,35 +537,52 @@ namespace EDAdvancedSearch
             List<SysObj> result = EDS.Search(l, p, r, pI, pA);
             
             ConsoleWrite("\nResults Found! Will now output\n");
-            
-            for (int cnt = 0; cnt < result.Count; cnt++)
+            bool conf = true;
+            if (result.Count >= 100)
             {
-                string s = "\nSystem Name: " + result[cnt].name;
-                if (ck[0])
-                    s += "\nCoordinates: X: " + result[cnt].x + " Y: " + result[cnt].y + " Z: " + result[cnt].z;
-                if (ck[1])
-                    s += "\nPopulation: " + result[cnt].population;
-                if (ck[2])
-                    s += "\nFaction Name: " + result[cnt].faction;
-                if (ck[3])
-                    s += "\nGovernment: " + result[cnt].government;
-                if (ck[4])
-                    s += "\nAllegiance: " + result[cnt].allegiance;
-                if (ck[5])
-                    s += "\nSecurity: " + result[cnt].security;
-                if (ck[6])
-                    s += "\nEconomy: " + result[cnt].primary_economy;
-                if (ck[7])
-                    s += "\nPower: " + result[cnt].power;
-                if (ck[8])
-                    s += "\nPower State: " + result[cnt].power_state;
-                if (ck[9])        
-                    s += "\nPermit: " + result[cnt].needs_permit;
-                s += "\n";
-                ConsoleWrite(s);
-                
+                var cf = MessageBox.Show("Warning! Output contains " + result.Count + " results. Continue?","Warning! Large Output!", MessageBoxButtons.YesNo);
+                if (cf == DialogResult.No)
+                    conf = false;                   
             }
-            ConsoleWrite("\nDone.");
+            if (conf)
+            {
+                for (int cnt = 0; cnt < result.Count; cnt++)
+                {
+                    string s = "\nSystem Name: " + result[cnt].name;
+                    if (ck[0])
+                        s += "\nCoordinates: X: " + result[cnt].x + " Y: " + result[cnt].y + " Z: " + result[cnt].z;
+                    if (ck[1])
+                        s += "\nPopulation: " + result[cnt].population;
+                    if (ck[2])
+                        s += "\nFaction Name: " + result[cnt].faction;
+                    if (ck[3])
+                        s += "\nGovernment: " + result[cnt].government;
+                    if (ck[4])
+                        s += "\nAllegiance: " + result[cnt].allegiance;
+                    if (ck[5])
+                        s += "\nSecurity: " + result[cnt].security;
+                    if (ck[6])
+                        s += "\nEconomy: " + result[cnt].primary_economy;
+                    if (ck[7])
+                        s += "\nPower: " + result[cnt].power;
+                    if (ck[8])
+                        s += "\nPower State: " + result[cnt].power_state;
+                    if (ck[9])
+                    {
+                        s += "\nPermit: ";
+                        if (result[cnt].needs_permit == 0)
+                            s += "False";
+                        else
+                            s += "True";
+                    }
+                    s += "\nLast Updated: " + EDS.FromUnixTime(result[cnt].updated_at) + "\n";
+                    ConsoleWrite(s);
+
+                }
+                ConsoleWrite("\nDone.");
+            }
+            else
+                ConsoleWrite("\nOutput cancelled by user.");
             ButtonRelease();
         }
 
