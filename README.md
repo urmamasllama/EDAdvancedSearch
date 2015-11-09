@@ -1,6 +1,8 @@
 # EDAdvancedSearch
 Advanced search tool for elite dangerous using EDDB
 
+Download Version 11-8-2 [Here](https://goo.gl/yCFrb9)
+
 Patch notes version 11-8-2
 - fixed a catch for putting in coords
 - added a distance feature when using coords
