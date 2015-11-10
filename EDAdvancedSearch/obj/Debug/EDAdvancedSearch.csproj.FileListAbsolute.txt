@@ -20,3 +20,14 @@ E:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\obj\Debug
 E:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\obj\Debug\EDAdvancedSearch.Properties.Resources.resources
 E:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\obj\Debug\EDAdvancedSearch.SearchForm.resources
 E:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\obj\Debug\EDAdvancedSearch.csproj.GenerateResource.Cache
+D:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\bin\Debug\EDAdvancedSearch.exe.config
+D:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\obj\Debug\EDAdvancedSearch.exe
+D:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\obj\Debug\EDAdvancedSearch.pdb
+D:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\obj\Debug\EDAdvancedSearch.csprojResolveAssemblyReference.cache
+D:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\obj\Debug\EDAdvancedSearch.Properties.Resources.resources
+D:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\obj\Debug\EDAdvancedSearch.SearchForm.resources
+D:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\obj\Debug\EDAdvancedSearch.csproj.GenerateResource.Cache
+D:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\bin\Debug\EDAdvancedSearch.exe
+D:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\bin\Debug\EDAdvancedSearch.pdb
+D:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\bin\Debug\Newtonsoft.Json.dll
+D:\Google Drive\Visual Studio\Github\EDAdvancedSearch\EDAdvancedSearch\bin\Debug\Newtonsoft.Json.xml

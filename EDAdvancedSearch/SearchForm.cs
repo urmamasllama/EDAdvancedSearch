@@ -79,9 +79,28 @@ namespace EDAdvancedSearch
 
         private void SearchForm_Shown(object sender, EventArgs e)
         {
-            ConsoleTextBox.AppendText("\nUpdating Database...");
+            ConsoleTextBox.AppendText("\nChecking for Database Updates...");
             new Thread(delegate()
             {
+                DateTime now = DateTime.Now;
+                var folder = @".\EDDB";
+                var path = folder + @"\systems-" + now.ToString("MM-dd-yyyy") + ".json";
+                string up;
+                try
+                {
+                    up = EDS.update(folder, path);
+                    ConsoleWrite("\nLoading database...");
+                    list = EDS.Prep(up);
+                }
+                catch
+                {
+                    ConsoleWrite("\nFailed to load attempting for mono...");
+                    folder = @"EDDB";
+                    path = folder + @"/systems-" + now.ToString("MM-dd-yyyy") + ".json";
+                    up = EDS.update(folder, path);
+                    ConsoleWrite("\nLoading database...");
+                    list = EDS.Prep(up);
+                }
                 list = EDS.Prep();
                 
                 ConsoleWrite("\nDone.");
@@ -411,7 +430,9 @@ namespace EDAdvancedSearch
             "\n\n\tThe drop-down menus should be pretty self explanatory. Just remember if you don't want to search by one put it back to it't title option." +
             "\n\n\tThe checkbox allow you to choose what information displays on output by default they are all selected and system name is always enabled" +
             "\n\n\tAnd of course once you've set your search terms how you like hit that big 'ol search button. " +
-            "Keep in mind that if you want to hold on to your results you need to copy-paste them somewhere because this Console resets everyime you push the buttom."+
+            "Keep in mind that if you want to hold on to your results you need to copy-paste them somewhere because this Console resets everyime you push the buttom." +
+            "\n\n\tIf the auto update fails it is highly recommended you update manually, to do so go to https://eddb.io/api and download the systems.json file." +
+            "to do that right click the link and \"select save link as\" then save it to the folder for this application with the name \"backup.json\""+
             "\n\n\tLegal:\nED Advanced Search is a third party search tool for Elite:Dangerous" +
                 "\nCopyright (C) 2015  Benjamin Massingill \n\nThis program is free software: you can redistribute it and/or modify"+
                 "\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or" +

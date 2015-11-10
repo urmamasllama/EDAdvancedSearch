@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Numerics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Windows.Forms;
 
 /*  ED Advanced Search is a third party search tool for Elite:Dangerous
  *  Copyright (C) 2015  Benjamin Massingill
@@ -116,19 +118,50 @@ namespace EDAdvancedSearch
         public static List<SysObj> Prep()
         {
             DateTime now = DateTime.Now;
-            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"\EDAdvS\EDDBSYS" + now.ToString("MM-dd-yyyy") + ".json");
-            var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"\EDAdvS");
+
+            var folder = @".\EDDB";
+            var path = folder + @"\systems-" +now.ToString("MM-dd-yyyy") + ".json";
+            try
+            {
+                return Prep(update(folder,path));
+            }
+            catch
+            {
+                folder = @"EDDB";
+                path = folder + @"/systems-" + now.ToString("MM-dd-yyyy") + ".json";
+                return Prep(update(folder, path));
+            }
+            
+        }
+        public static string update(string folder, string path)
+        {
+            DateTime now = DateTime.Now;
+
             if (!File.Exists(path))//used to avoid having a bunch of older versions of the file
             {
-                if (Directory.Exists(folder))                
+                if (Directory.Exists(folder))
+                {
                     Directory.Delete(folder, true);
-                                    
-                Directory.CreateDirectory(folder);
-                WebClient Client = new WebClient();
-                Client.DownloadFile("https://eddb.io/archive/v4/systems.json", path);
-            }
+                }               
+                try
+                {
+                    Directory.CreateDirectory(folder);
+                    WebClient Client = new WebClient();
+                    Client.DownloadFile("https://eddb.io/archive/v4/systems.json", path);
+                    if (File.Exists("backup.json"))
+                        File.Delete("backup.json");
+                    File.Copy(path, "backup.json");
+                }
+                catch
+                {
+                    DialogResult err = MessageBox.Show("Error. Unable to download system database.\nThis is a known bug for WINE/Mono users." +
+                          "\nPlease see the help button for how to manually update", "Update Error");
+                    path = "backup.json";
 
-            return Prep(path);
+                }
+            }
+            
+            return path;
         }
         /* json pulled from https://eddb.io/archive/v4/systems.json
          * Query-able items:
